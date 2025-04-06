@@ -1,0 +1,29 @@
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Makefile
+*.ninja
+*.cmake
+*.log
+out/
+build/
+
+# vcpkg files
+/vcpkg/
+
+# IDE or Editor files
+.vscode/
+.idea/
+.vs/
+*.user
+*.suo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
