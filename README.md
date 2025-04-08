@@ -38,9 +38,43 @@ cd vcpkg
 ./bootstrap-vcpkg.sh  # On Linux/MacOS
 ```
 
-#### 3. Add vcpkg to your PATH (optional but recommended for convenience):
-- On **Windows**: Add C:\path\to\vcpkg to your PATH environment variable.
-- On **Linux/MacOS**: Add export PATH=$PATH:/path/to/vcpkg to your .bashrc or .zshrc.
+#### 3. Add `vcpkg` to your PATH and `VCPKG_ROOT`:
+
+- On **Windows** (using PowerShell and Command Prompt):
+
+**Set `VCPKG_ROOT` and add `vcpkg` to your PATH in PowerShell or Command Prompt**:
+
+```powershell
+$env:VCPKG_ROOT = "C:\path\to\your\vcpkg"  # PowerShell (temporary, for current session)
+$env:PATH += ";C:\path\to\your\vcpkg"  # PowerShell (temporary, for current session)
+```
+```cmd
+setx VCPKG_ROOT "C:\path\to\your\vcpkg"  # Command Prompt (permanent, survives after restart)
+setx PATH "%PATH%;C:\path\to\your\vcpkg"  # Command Prompt (permanent, survives after restart)
+```
+Alternatively, to add it manually, go to **Control Panel > System > Advanced system settings > Environment Variables**.
+
+- On **Linux/MacOS**:
+
+**Set `VCPKG_ROOT` and add `vcpkg` to your PATH**:
+
+Add the following line to your shell's configuration file (`.bashrc`, `.zshrc`, etc.):
+
+```bash
+export VCPKG_ROOT="/path/to/your/vcpkg"
+export PATH=$PATH:/path/to/your/vcpkg"
+```
+
+Replace `"/path/to/your/vcpkg"` with the actual path where `vcpkg` is located.
+After making these changes, make sure to **source** the file so the changes take effect:
+
+```bash
+source ~/.bashrc   # For Bash users
+# or
+source ~/.zshrc    # For Zsh users
+```
+
+This will ensure that `vcpkg` is available globally on your system.
 
 ### 3. Install Project Dependencies
 
@@ -55,8 +89,8 @@ cd /path/to/your/P2P-Chat
 #### 2. Install the dependencies using vcpkg:
 
 ```bash
-/path/to/vcpkg/vcpkg install --triplet x64-windows  # For Windows
-/path/to/vcpkg/vcpkg install --triplet x64-linux   # For Linux/MacOS
+vcpkg install --triplet x64-windows  # For Windows
+vcpkg install --triplet x64-linux   # For Linux/MacOS
 ```
 
 ### 4. Set Up the CMake Configuration
