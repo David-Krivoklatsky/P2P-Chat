@@ -55,8 +55,8 @@ cd /path/to/your/P2P-Chat
 #### 2. Install the dependencies using vcpkg:
 
 ```bash
-./vcpkg/vcpkg install --triplet x64-windows  # For Windows
-./vcpkg/vcpkg install --triplet x64-linux   # For Linux/MacOS
+/path/to/vcpkg/vcpkg install --triplet x64-windows  # For Windows
+/path/to/vcpkg/vcpkg install --triplet x64-linux   # For Linux/MacOS
 ```
 
 ### 4. Set Up the CMake Configuration
@@ -69,14 +69,6 @@ cd build
 ```
 
 #### 2. Configure the CMake project with the vcpkg toolchain file:
-
-On **Windows**:
-
-```bash
-cmake -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake ..
-```
-
-On **Linux/MacOS**:
 
 ```bash
 cmake -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake ..
