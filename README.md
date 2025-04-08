@@ -42,37 +42,37 @@ cd vcpkg
 
 - On **Windows** (using PowerShell and Command Prompt):
 
-**Set `VCPKG_ROOT` and add `vcpkg` to your PATH in PowerShell or Command Prompt**:
-
-```powershell
-$env:VCPKG_ROOT = "C:\path\to\your\vcpkg"  # PowerShell (temporary, for current session)
-$env:PATH += ";C:\path\to\your\vcpkg"  # PowerShell (temporary, for current session)
-```
-```cmd
-setx VCPKG_ROOT "C:\path\to\your\vcpkg"  # Command Prompt (permanent, survives after restart)
-setx PATH "%PATH%;C:\path\to\your\vcpkg"  # Command Prompt (permanent, survives after restart)
-```
-Alternatively, to add it manually, go to **Control Panel > System > Advanced system settings > Environment Variables**.
+  **Set `VCPKG_ROOT` and add `vcpkg` to your PATH in PowerShell or Command Prompt**:
+  
+  ```powershell
+  $env:VCPKG_ROOT = "C:\path\to\your\vcpkg"  # PowerShell (temporary, for current session)
+  $env:PATH += ";C:\path\to\your\vcpkg"  # PowerShell (temporary, for current session)
+  ```
+  ```cmd
+  setx VCPKG_ROOT "C:\path\to\your\vcpkg"  # Command Prompt (permanent, survives after restart)
+  setx PATH "%PATH%;C:\path\to\your\vcpkg"  # Command Prompt (permanent, survives after restart)
+  ```
+  Alternatively, to add it manually, go to **Control Panel > System > Advanced system settings > Environment Variables**.
 
 - On **Linux/MacOS**:
 
-**Set `VCPKG_ROOT` and add `vcpkg` to your PATH**:
-
-Add the following line to your shell's configuration file (`.bashrc`, `.zshrc`, etc.):
-
-```bash
-export VCPKG_ROOT="/path/to/your/vcpkg"
-export PATH=$PATH:/path/to/your/vcpkg"
-```
-
-Replace `"/path/to/your/vcpkg"` with the actual path where `vcpkg` is located.
-After making these changes, make sure to **source** the file so the changes take effect:
-
-```bash
-source ~/.bashrc   # For Bash users
-# or
-source ~/.zshrc    # For Zsh users
-```
+  **Set `VCPKG_ROOT` and add `vcpkg` to your PATH**:
+  
+  Add the following line to your shell's configuration file (`.bashrc`, `.zshrc`, etc.):
+  
+  ```bash
+  export VCPKG_ROOT="/path/to/your/vcpkg"
+  export PATH=$PATH:/path/to/your/vcpkg"
+  ```
+  
+  Replace `"/path/to/your/vcpkg"` with the actual path where `vcpkg` is located.
+  After making these changes, make sure to **source** the file so the changes take effect:
+  
+  ```bash
+  source ~/.bashrc   # For Bash users
+  # or
+  source ~/.zshrc    # For Zsh users
+  ```
 
 This will ensure that `vcpkg` is available globally on your system.
 
@@ -80,35 +80,35 @@ This will ensure that `vcpkg` is available globally on your system.
 
 Now that vcpkg is set up, install the required dependencies for the project:
 
-#### 1. Navigate to the project directory:
-
-```bash
-cd /path/to/your/P2P-Chat
-```
-
-#### 2. Install the dependencies using vcpkg:
-
-```bash
-vcpkg install --triplet x64-windows  # For Windows
-vcpkg install --triplet x64-linux   # For Linux/MacOS
-```
+  #### 1. Navigate to the project directory:
+  
+  ```bash
+  cd /path/to/your/P2P-Chat
+  ```
+  
+  #### 2. Install the dependencies using vcpkg:
+  
+  ```bash
+  vcpkg install --triplet x64-windows  # For Windows
+  vcpkg install --triplet x64-linux   # For Linux/MacOS
+  ```
 
 ### 4. Set Up the CMake Configuration
 
-#### 1. Create a new build directory:
-
-```bash
-mkdir build
-cd build
-```
-
-#### 2. Configure the CMake project with the vcpkg toolchain file:
-
-```bash
-cmake -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake ..
-```
-
-Make sure the path to `vcpkg.cmake` is correct.
+  #### 1. Create a new build directory:
+  
+  ```bash
+  mkdir build
+  cd build
+  ```
+  
+  #### 2. Configure the CMake project with the vcpkg toolchain file:
+  
+  ```bash
+  cmake -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+  ```
+  
+  Make sure the path to `vcpkg.cmake` is correct.
 
 ### 5. Build the Project
 
