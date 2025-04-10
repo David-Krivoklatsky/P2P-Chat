@@ -2,8 +2,6 @@
 
 ## Prerequisites
 
-Before setting up the project, ensure you have the following tools installed:
-
 1. **Git**: [Install Git](https://git-scm.com/downloads)
 2. **CMake**: [Install CMake](https://cmake.org/download/)
 3. **Visual Studio** (or any IDE with CMake support) or **Visual Studio Code** with the CMake extension (optional, depending on your preference).
@@ -14,11 +12,11 @@ Before setting up the project, ensure you have the following tools installed:
 ### 1. Clone the Repository
 Clone the repository to your local machine:
 ```bash
-git clone https://github.com/yourusername/P2P-Chat.git
+git clone https://github.com/David-Krivoklatsky/P2P-Chat.git
 cd P2P-Chat
 ```
 
-### 2. Install Dependencies with vcpkg
+### 2. Install vcpkg
 
 > [!IMPORTANT]
 > Ensure that **vcpkg** is properly installed before proceeding with the project setup. Missing dependencies may cause build failures.
@@ -55,8 +53,10 @@ cd /path/to/your/P2P-Chat
 #### 2. Install the dependencies using vcpkg:
 
 ```bash
-./vcpkg/vcpkg install --triplet x64-windows  # For Windows
-./vcpkg/vcpkg install --triplet x64-linux   # For Linux/MacOS
+cd ..
+vcpkg install boost-beast:x64-windows
+vcpkg install nlohmann-json:x64-windows
+vcpkg install termcolor:x64-windows
 ```
 
 ### 4. Set Up the CMake Configuration
@@ -70,17 +70,14 @@ cd build
 
 #### 2. Configure the CMake project with the vcpkg toolchain file:
 
-On **Windows**:
-
-```bash
-cmake -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake ..
-```
-
-On **Linux/MacOS**:
-
-```bash
-cmake -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake ..
-```
+- To run in **Command prompt**:
+    ```cmd
+    cmake .. -DCMAKE_TOOLCHAIN_FILE=%VCPKG_ROOT%/scripts/buildsystems/vcpkg.cmake
+    ```
+- To run in **Powershell**:
+    ```powershell
+    cmake .. -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake"
+    ```
 
 Make sure the path to `vcpkg.cmake` is correct.
 
@@ -108,7 +105,7 @@ To run from the command line:
 <!-- In **Visual Studio**, press `F5` to start debugging, or choose **Debug → Start Debugging**. -->
 
 > [!INFO]
-> If you are using **Visual Studio**, you can simply press **`F5`** to build and run the project after configuring it with CMake, or choose **Debug → Start Debugging**..
+> If you are using **Visual Studio**, you can simply press **`F5`** to build and run the project after configuring it with CMake, or choose **Debug → Start Debugging**.
 
 ## Rebuilding the Project
 

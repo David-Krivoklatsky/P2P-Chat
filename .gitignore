@@ -1,5 +1,6 @@
 # CMake files
 CMakeCache.txt
+CMakeSettings.json
 CMakeFiles/
 CMakeScripts/
 Makefile
@@ -11,6 +12,7 @@ build/
 
 # vcpkg files
 /vcpkg/
+vcpkg_installed
 
 # IDE or Editor files
 .vscode/
